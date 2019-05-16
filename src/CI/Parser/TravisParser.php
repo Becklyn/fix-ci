@@ -26,11 +26,18 @@ class TravisParser implements ParserInterface
         try
         {
             $config = Yaml::parse($content);
-            $tasks = $config["before_script"] ?? [];
+            $allowedKeys = [
+                "before_script",
+                "script",
+            ];
+            $tasks = [];
 
-            foreach (($config["script"] ?? []) as $script)
+            foreach ($allowedKeys as $key)
             {
-                $tasks[] = $script;
+                foreach (($config[$key] ?? []) as $script)
+                {
+                    $tasks[] = $script;
+                }
             }
 
             return $tasks;
