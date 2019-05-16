@@ -7,6 +7,7 @@ use Becklyn\FixCi\Task\TaskRunner;
 use Becklyn\FixCi\Task\TaskTransformer;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
@@ -48,11 +49,21 @@ class FixCiCommand extends Command
     /**
      * @inheritDoc
      */
+    protected function configure ()
+    {
+        $this
+            ->addOption("only-fix", null, InputOption::VALUE_NONE, "Whether to only fix the tasks and not run the check tasks. Tasks that have both modes will always be run in fix mode.");
+    }
+
+
+    /**
+     * @inheritDoc
+     */
     protected function execute (InputInterface $input, OutputInterface $output)
     {
         $io = new SymfonyStyle($input, $output);
-
         $io->title("Fix CI");
+        $onlyFix = $input->getOption("only-fix");
 
         $tasks = null;
         $files = [
@@ -78,7 +89,12 @@ class FixCiCommand extends Command
             return 1;
         }
 
-        $tasks = $this->taskTransformer->transformTasks($tasks);
+        $io->comment(\sprintf(
+            "Run mode: <fg=yellow>%s</>",
+            $onlyFix ? "fix" : "fix and check"
+        ));
+
+        $tasks = $this->taskTransformer->transformTasks($tasks, $onlyFix);
         $tasksWithErrors = 0;
 
         foreach ($tasks as $task)
