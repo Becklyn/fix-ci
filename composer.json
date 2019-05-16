@@ -1,0 +1,31 @@
+{
+    "name": "becklyn/fix-ci",
+    "type": "cli",
+    "description": "Small CLI utility, that allows to run the tasks from common CI tools.",
+    "homepage": "https://github.com/Becklyn/",
+    "require": {
+        "php": "^7.2",
+        "symfony/console": "^4.2",
+        "symfony/process": "^4.2",
+        "symfony/yaml": "^4.2"
+    },
+    "require-dev": {
+        "becklyn/php-cs": "^1.1"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Becklyn\\FixCi\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Becklyn\\FixCi\\": "tests/"
+        }
+    },
+    "bin": [
+        "bin/fix-ci"
+    ]
+}
