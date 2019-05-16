@@ -16,6 +16,7 @@ class TaskTransformer
         '~mkdir~',
         '~npm.*? build~',
         '~npm.*? install~',
+        '~npm.*? i$~',
         '~^echo~',
     ];
 
@@ -25,7 +26,7 @@ class TaskTransformer
     private const EXCLUDES_ONLY_FIX = [
         '~simple-phpunit~',
         '~npm audit~',
-        '~npm test~',
+        '~npm t(est|$)~',
     ];
 
     /**
@@ -99,7 +100,7 @@ class TaskTransformer
                     foreach ($additions as $addition)
                     {
                         // don't add duplicate arguments
-                        if (!\preg_match('~\\b' . \preg_quote($addition, '~') . '\\b~', $task))
+                        if (!\preg_match('~\\s' . \preg_quote($addition, '~') . '(\\s|$)~', $task))
                         {
                             $task .= " {$addition}";
                         }
