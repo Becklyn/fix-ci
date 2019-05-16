@@ -3,6 +3,7 @@
 namespace Becklyn\FixCi\Task;
 
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\Process\Process;
 
 class TaskRunner
 {
@@ -18,6 +19,22 @@ class TaskRunner
     {
         $io->section("Run: `{$task}`");
 
-        return true;
+        $process = Process::fromShellCommandline($task);
+        $process->run(
+            function ($type, $buffer)
+            {
+                echo $buffer;
+            }
+        );
+
+        $io->newLine(2);
+        $io->writeln(
+            $process->isSuccessful()
+            ? '<fg=green>✓</>'
+            : '❌'
+        );
+        $io->newLine();
+
+        return $process->isSuccessful();
     }
 }
