@@ -35,6 +35,9 @@ class TaskTransformer
         '~prettier-package-json~' => [
             '--write',
         ],
+        '~(composer|phpstan|php-cs-fixer|bin/console)~' => [
+            '--ansi',
+        ],
     ];
 
     /**
