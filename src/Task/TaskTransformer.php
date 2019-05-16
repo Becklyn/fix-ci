@@ -96,7 +96,14 @@ class TaskTransformer
             {
                 if (\preg_match($pattern, $task))
                 {
-                    $task .= ' ' . \implode(" ", $additions);
+                    foreach ($additions as $addition)
+                    {
+                        // don't add duplicate arguments
+                        if (!\preg_match('~\\b' . \preg_quote($addition, '~') . '\\b~', $task))
+                        {
+                            $task .= " {$addition}";
+                        }
+                    }
                 }
             }
 
