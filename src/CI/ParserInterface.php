@@ -7,7 +7,7 @@ use Becklyn\FixCi\Exception\ParserException;
 interface ParserInterface
 {
     /**
-     * Returns whether the parser supports the file at the given file path
+     * Returns whether the parser supports the file at the given file path.
      *
      * @param string $filePath
      *
@@ -22,6 +22,7 @@ interface ParserInterface
      * @param string $content
      *
      * @throws ParserException
+     *
      * @return string[]
      */
     public function parse (string $content) : array;

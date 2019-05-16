@@ -8,7 +8,7 @@ namespace Becklyn\FixCi\Task;
 class TaskTransformer
 {
     /**
-     * List of tasks that will never be run
+     * List of tasks that will never be run.
      */
     private const EXCLUDES_ALWAYS = [
         '~composer install~',
@@ -21,7 +21,7 @@ class TaskTransformer
     ];
 
     /**
-     * List of tasks that should be skipped in --only-fix mode
+     * List of tasks that should be skipped in --only-fix mode.
      */
     private const EXCLUDES_ONLY_FIX = [
         '~simple-phpunit~',
@@ -85,7 +85,7 @@ class TaskTransformer
             {
                 if (\preg_match($pattern, $task))
                 {
-                    $task = trim(str_replace(
+                    $task = \trim(\str_replace(
                         \array_map(function (string $arg) { return " {$arg}"; }, $removals),
                         '',
                         $task

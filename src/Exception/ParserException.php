@@ -4,5 +4,4 @@ namespace Becklyn\FixCi\Exception;
 
 class ParserException extends FixCiException
 {
-
 }

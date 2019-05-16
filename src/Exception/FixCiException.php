@@ -2,7 +2,6 @@
 
 namespace Becklyn\FixCi\Exception;
 
-
 class FixCiException extends \RuntimeException
 {
     /**

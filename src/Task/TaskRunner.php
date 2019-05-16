@@ -8,7 +8,7 @@ use Symfony\Component\Process\Process;
 class TaskRunner
 {
     /**
-     * Runs the given task
+     * Runs the given task.
      *
      * @param string       $task
      * @param SymfonyStyle $io
@@ -21,7 +21,7 @@ class TaskRunner
 
         $process = Process::fromShellCommandline($task);
         $process->run(
-            function ($type, $buffer)
+            function ($type, $buffer) : void
             {
                 echo $buffer;
             }

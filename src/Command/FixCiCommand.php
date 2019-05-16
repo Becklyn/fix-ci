@@ -49,7 +49,7 @@ class FixCiCommand extends Command
     /**
      * @inheritDoc
      */
-    protected function configure ()
+    protected function configure () : void
     {
         $this
             ->addOption("only-fix", null, InputOption::VALUE_NONE, "Whether to only fix the tasks and not run the check tasks. Tasks that have both modes will always be run in fix mode.");
