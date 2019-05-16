@@ -13,20 +13,21 @@ class TaskTransformer
     private const EXCLUDES_ALWAYS = [
         '~composer install~',
         '~composer.*?require~',
+        '~^echo~',
         '~mkdir~',
         '~npm.*? build~',
-        '~npm.*? install~',
         '~npm.*? i$~',
-        '~^echo~',
+        '~npm.*? install~',
     ];
 
     /**
      * List of tasks that should be skipped in --only-fix mode.
      */
     private const EXCLUDES_ONLY_FIX = [
-        '~simple-phpunit~',
+        '~doctrine:schema:validate~',
         '~npm audit~',
         '~npm t(est|$)~',
+        '~simple-phpunit~',
     ];
 
     /**
