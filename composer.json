@@ -3,6 +3,7 @@
     "type": "cli",
     "description": "Small CLI utility, that allows to run the tasks from common CI tools.",
     "homepage": "https://github.com/Becklyn/",
+    "license": "BSD-3-Clause",
     "require": {
         "php": "^7.2",
         "symfony/console": "^4.2",
