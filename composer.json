@@ -1,0 +1,7 @@
+{
+    "name": "becklyn/fix-ci",
+    "type": "cli",
+    "description": "Small CLI utility, that allows to run the tasks from common CI tools.",
+    "homepage": "https://github.com/Becklyn/",
+
+}
