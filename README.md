@@ -7,7 +7,7 @@ Installation
 ------------
 
 ```bash
-composer global require becklyn/cert-key-matcher
+composer global require becklyn/fix-ci
 ```
 
 
