@@ -54,7 +54,7 @@ class TaskTransformer
         '~prettier-package-json~' => [
             '--list-different',
         ],
-        '~vendor/bin/php-cs-fixer~' => [
+        '~php-cs-fixer~' => [
             '--dry-run',
             '--no-interaction',
         ],
