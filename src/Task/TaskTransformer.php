@@ -34,9 +34,6 @@ class TaskTransformer
      * Mapping of pattern to all parameters that should be added.
      */
     private const ADD_PARAMETERS = [
-        '~(composer|phpstan|php-cs-fixer|bin/console)~' => [
-            '--ansi',
-        ],
         '~prettier-package-json~' => [
             '--write',
         ],

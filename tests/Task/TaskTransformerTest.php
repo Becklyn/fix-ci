@@ -14,11 +14,11 @@ class TaskTransformerTest extends TestCase
     {
         return [
             "prettier-package-json" => ['npx prettier-package-json package.json --list-different --tab-width 4', 'npx prettier-package-json package.json --tab-width 4 --write'],
-            "composer normalize" => ['composer normalize --indent-size 4 --indent-style space --dry-run', 'composer normalize --indent-size 4 --indent-style space --ansi'],
-            "php-cs-fixer" => ['php vendor/bin/php-cs-fixer fix --diff --config vendor/becklyn/php-cs/.php_cs.dist --dry-run --no-interaction', 'php vendor/bin/php-cs-fixer fix --diff --config vendor/becklyn/php-cs/.php_cs.dist --ansi'],
-            "phpstan" => ['php vendor/bin/phpstan analyse -l 4 --memory-limit 4G -c phpstan.neon . --no-interaction --no-progress', 'php vendor/bin/phpstan analyse -l 4 --memory-limit 4G -c phpstan.neon . --ansi'],
+            "composer normalize" => ['composer normalize --indent-size 4 --indent-style space --dry-run', 'composer normalize --indent-size 4 --indent-style space'],
+            "php-cs-fixer" => ['php vendor/bin/php-cs-fixer fix --diff --config vendor/becklyn/php-cs/.php_cs.dist --dry-run --no-interaction', 'php vendor/bin/php-cs-fixer fix --diff --config vendor/becklyn/php-cs/.php_cs.dist'],
+            "phpstan" => ['php vendor/bin/phpstan analyse -l 4 --memory-limit 4G -c phpstan.neon . --no-interaction --no-progress', 'php vendor/bin/phpstan analyse -l 4 --memory-limit 4G -c phpstan.neon .'],
             "detect duplicate param" => ['composer normalize --indent-size 4 --indent-style space --dry-run --ansi', 'composer normalize --indent-size 4 --indent-style space --ansi'],
-            "match duplicate parameter correctly" => ['composer normalize --ansi-test', 'composer normalize --ansi-test --ansi']
+            "match duplicate parameter correctly" => ['npx prettier-package-json package.json --tab-width 4 --write-test', 'npx prettier-package-json package.json --tab-width 4 --write-test --write']
         ];
     }
 
