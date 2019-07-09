@@ -44,41 +44,67 @@ class TaskTransformerTest extends TestCase
     /**
      * @return array
      */
-    public function provideExclude () : array
+    public function provideIsExcluded () : array
     {
+        // arguments:
+        //  1. bool whether it should be excluded or not
+        //  2. the command
+        //  3. whether to run with --fix-only
+
         return [
             // always exclude
-            ['composer install --no-interaction --prefer-dist --no-progress', false],
-            ['composer install --no-interaction --prefer-dist --no-progress', true],
-            ['composer global require localheinz/composer-normalize --no-interaction --prefer-dist --no-progress', false],
-            ['composer global require localheinz/composer-normalize --no-interaction --prefer-dist --no-progress', true],
-            ['mkdir test', true],
-            ['mkdir test', false],
-            ['echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc', true],
-            ['echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc', false],
-            ['npm run-script build', true],
-            ['npm run-script build', false],
-            ['npm install', true],
-            ['npm install', false],
-            ['npm i', true],
-            ['npm i', false],
+            [true, 'composer install --no-interaction --prefer-dist --no-progress', false],
+            [true, 'composer install --no-interaction --prefer-dist --no-progress', true],
+            [true, 'composer global require localheinz/composer-normalize --no-interaction --prefer-dist --no-progress', false],
+            [true, 'composer global require localheinz/composer-normalize --no-interaction --prefer-dist --no-progress', true],
+            [true, 'mkdir test', true],
+            [true, 'mkdir test', false],
+            [true, 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc', true],
+            [true, 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc', false],
+            [true, 'npm run-script build', true],
+            [true, 'npm run-script build', false],
+            [true, 'npm install', true],
+            [true, 'npm install', false],
+            [true, 'npm i', true],
+            [true, 'npm i', false],
+
+            [true, 'apt install', true],
+            [true, 'apt install', false],
+            [false, 'aapt install', true],
+            [false, 'aapt install', false],
+            [true, 'test ; apt install', true],
+            [true, 'test ; apt install', false],
+
+            [true, 'pip install', true],
+            [true, 'pip install', false],
+            [false, 'apip install', true],
+            [false, 'apip install', false],
+            [true, 'test ; pip install', true],
+            [true, 'test ; pip install', false],
+
+            [true, 'source file', true],
+            [true, 'source file', false],
+            [false, 'asource file', true],
+            [false, 'asource file', false],
+            [true, 'test ; source file', true],
+            [true, 'test ; source file', false],
 
             // also exclude in --only-fix
-            ['npm audit', true],
-            ['./vendor/bin/simple-phpunit -c phpunit.xml --colors=always', true],
-            ['npm test', true],
-            ['npm t', true],
+            [true, 'npm audit', true],
+            [true, './vendor/bin/simple-phpunit -c phpunit.xml --colors=always', true],
+            [true, 'npm test', true],
+            [true, 'npm t', true],
         ];
     }
 
     /**
-     * @dataProvider provideExclude
+     * @dataProvider provideIsExcluded
      * @param string $task
      */
-    public function testExclude (string $task, bool $onlyFix) : void
+    public function testIsExcluded (bool $shouldBeExcluded, string $task, bool $onlyFix) : void
     {
         $transformer = new TaskTransformer();
         $result = $transformer->transformTasks([$task], $onlyFix);
-        self::assertCount(0, $result);
+        self::assertCount($shouldBeExcluded ? 0 : 1, $result);
     }
 }

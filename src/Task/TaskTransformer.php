@@ -11,6 +11,7 @@ class TaskTransformer
      * List of tasks that will never be run.
      */
     private const EXCLUDES_ALWAYS = [
+        '~(\\b|^)apt ~',
         '~composer install~',
         '~composer.*?require~',
         '~^echo~',
@@ -18,6 +19,8 @@ class TaskTransformer
         '~npm.*? build~',
         '~npm.*? i$~',
         '~npm.*? install~',
+        '~(\\b|^)pip ~',
+        '~(\\b|^)source ~',
     ];
 
     /**
