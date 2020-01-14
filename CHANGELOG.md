@@ -1,10 +1,16 @@
-1.1
-===
+1.0.2
+=====
 
-*   Enable `tty` instead of setting the `--ansi` parameters explicitly.
+*   (improvement) Enable `tty` instead of setting the `--ansi` parameters explicitly.
 
 
-1.0
-===
+1.0.1
+=====
+
+*   (docs) Add LICENSE.
+
+
+1.0.0
+=====
 
 *   Initial implementation.
