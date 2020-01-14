@@ -1,3 +1,9 @@
+next patch
+==========
+
+*   (internal) Use `roave/security-advisories`.
+
+
 1.0.2
 =====
 
