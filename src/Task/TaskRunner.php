@@ -20,6 +20,7 @@ class TaskRunner
         $io->section("Run: `{$task}`");
 
         $process = Process::fromShellCommandline($task);
+        $process->setTimeout(null);
         $process->setTty(true);
         $process->run(
             function ($type, $buffer) : void
