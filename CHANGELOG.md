@@ -2,6 +2,7 @@ next patch
 ==========
 
 *   (internal) Use `roave/security-advisories`.
+*   (internal) Unset timeout for `TaskRunner` (previously 60 seconds).
 
 
 1.0.2
