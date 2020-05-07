@@ -61,6 +61,8 @@ class TaskTransformerTest extends TestCase
             [true, 'mkdir test', false],
             [true, 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc', true],
             [true, 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc', false],
+            [true, 'kaba analyze', true],
+            [true, 'kaba analyze', false],
             [true, 'npm run-script build', true],
             [true, 'npm run-script build', false],
             [true, 'npm ci', true],

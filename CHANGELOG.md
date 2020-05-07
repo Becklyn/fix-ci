@@ -2,6 +2,7 @@
 =====
 
 *   (improvement) Also ignore `npm ci`.
+*   (improvement) Also ignore `kaba analyze`.
 
 
 1.0.3

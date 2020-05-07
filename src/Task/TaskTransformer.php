@@ -15,6 +15,7 @@ class TaskTransformer
         '~composer install~',
         '~composer.*?require~',
         '~^echo~',
+        '~kaba.*? analyze~',
         '~mkdir~',
         '~npm.*? build~',
         '~npm.*? ci~',
