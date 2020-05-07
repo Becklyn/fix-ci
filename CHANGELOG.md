@@ -1,3 +1,9 @@
+1.0.4
+=====
+
+*   (improvement) Also ignore `npm ci`.
+
+
 1.0.3
 =====
 

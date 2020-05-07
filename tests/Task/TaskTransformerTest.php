@@ -63,6 +63,8 @@ class TaskTransformerTest extends TestCase
             [true, 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc', false],
             [true, 'npm run-script build', true],
             [true, 'npm run-script build', false],
+            [true, 'npm ci', true],
+            [true, 'npm ci', false],
             [true, 'npm install', true],
             [true, 'npm install', false],
             [true, 'npm i', true],

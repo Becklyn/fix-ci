@@ -17,6 +17,7 @@ class TaskTransformer
         '~^echo~',
         '~mkdir~',
         '~npm.*? build~',
+        '~npm.*? ci~',
         '~npm.*? i$~',
         '~npm.*? install~',
         '~(\\b|^)pip ~',
