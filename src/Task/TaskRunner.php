@@ -9,11 +9,6 @@ class TaskRunner
 {
     /**
      * Runs the given task.
-     *
-     * @param string       $task
-     * @param SymfonyStyle $io
-     *
-     * @return bool
      */
     public function run (string $task, SymfonyStyle $io) : bool
     {

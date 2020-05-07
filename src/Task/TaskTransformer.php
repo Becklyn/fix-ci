@@ -15,8 +15,10 @@ class TaskTransformer
         '~composer install~',
         '~composer.*?require~',
         '~^echo~',
+        '~kaba.*? analyze~',
         '~mkdir~',
         '~npm.*? build~',
+        '~npm.*? ci~',
         '~npm.*? i$~',
         '~npm.*? install~',
         '~(\\b|^)pip ~',
@@ -64,10 +66,7 @@ class TaskTransformer
 
 
     /**
-     * @param array $tasks
-     * @param bool  $onlyFix
      *
-     * @return array
      */
     public function transformTasks (array $tasks, bool $onlyFix) : array
     {
@@ -118,11 +117,6 @@ class TaskTransformer
 
     /**
      * Checks whether the task is excluded.
-     *
-     * @param string $task
-     * @param bool   $onlyFix
-     *
-     * @return bool
      */
     private function isExcluded (string $task, bool $onlyFix) : bool
     {

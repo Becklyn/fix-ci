@@ -40,8 +40,7 @@ abstract class AbstractParserTest extends TestCase
         $parser = $this->createParser();
         $actual = $parser->parse(\file_get_contents("{$this->fixtures}/{$fileName}"));
 
-        self::assertCount(\count($expectedTasks), $actual, "count: {$this->getFixturesDirectory()}/{$fileName}");
-        self::assertArraySubset($expectedTasks, $actual, false, "content: {$this->getFixturesDirectory()}/{$fileName}");
+        self::assertEquals($expectedTasks, $actual, "content: {$this->getFixturesDirectory()}/{$fileName}");
     }
 
 

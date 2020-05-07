@@ -1,3 +1,11 @@
 /.php_cs.cache
+/.phpunit.result.cache
+/.stylelintcache
+/assets/node_modules
+/assets/package-lock.json
 /composer.lock
+/node_modules
+/studio.json
 /vendor
+/vendor-bin/*/composer.lock
+/vendor-bin/*/vendor
