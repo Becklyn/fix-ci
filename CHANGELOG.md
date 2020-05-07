@@ -3,6 +3,8 @@
 
 *   (improvement) Also ignore `npm ci`.
 *   (improvement) Also ignore `kaba analyze`.
+*   (internal) Update app infrastructure.
+*   (improvement) Allow symfony 5.
 
 
 1.0.3
